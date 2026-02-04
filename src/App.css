@@ -72,7 +72,7 @@ body::before {
   background-repeat: no-repeat;
   background-size: 500px; 
   
-  z-index: 99999;
+  z-index: 0;
   
   /* CAMBIO 2: Opacidad "2" (0.2) */
   opacity: 0.2; 
