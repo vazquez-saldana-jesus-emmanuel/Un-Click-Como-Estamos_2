@@ -1,0 +1,81 @@
+/* src/components/Reportes.css */
+
+/* =========================================
+   DISEÑO PREMIUM WHITE - REPORTES (DASHBOARD)
+   ========================================= */
+:root {
+  --primary: #3b82f6;
+  --bg-app: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --text-main: #1E293B;
+  --text-secondary: #64748B;
+  --border-radius: 12px;
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-hover: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+}
+
+.reportes-container { min-height: 100vh; display: flex; flex-direction: column; }
+.reportes-content { max-width: 1440px; margin: 0 auto; padding: 2rem 3rem; width: 100%; box-sizing: border-box; }
+
+/* --- HEADER --- */
+.content-header { margin-bottom: 2rem; border-bottom: 1px solid #F1F5F9; padding-bottom: 1rem; }
+.page-title { font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin: 0; }
+.subtitle { color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.5rem; }
+
+/* --- BARRA DE FILTROS --- */
+.filters-bar { background: #FFFFFF; padding: 0.8rem 1.5rem; border-radius: var(--border-radius); border: 1px solid #E2E8F0; display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem; box-shadow: var(--shadow-sm); }
+.filter-group { display: flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); font-weight: 600; font-size: 0.9rem; }
+.filter-select { appearance: none; background-color: #fff; border: 1px solid #CBD5E1; border-radius: 8px; padding: 0.5rem 1rem; font-size: 0.9rem; color: var(--text-main); min-width: 160px; cursor: pointer; transition: all 0.2s; background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%2364748B' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e"); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em; padding-right: 2rem; }
+.filter-select:focus { outline: none; border-color: var(--primary); }
+.btn-reset-filters { margin-left: auto; width: 36px; height: 36px; border-radius: 8px; border: 1px solid #E2E8F0; background: white; color: var(--text-secondary); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; }
+.btn-reset-filters:hover { background: #F8FAFC; color: var(--text-main); }
+
+/* --- GRID DE TARJETAS --- */
+.report-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; padding-bottom: 3rem; }
+.report-card { background: #FFFFFF; border-radius: var(--border-radius); border: 1px solid #E2E8F0; overflow: hidden; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); display: flex; flex-direction: column; cursor: pointer; }
+.report-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: #CBD5E1; }
+.card-image-container { height: 160px; position: relative; background-color: #F1F5F9; overflow: hidden; }
+.card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.report-card:hover .card-img { transform: scale(1.05); }
+.badge-tipo { position: absolute; top: 10px; right: 10px; background: rgba(255, 255, 255, 0.9); color: var(--text-main); padding: 4px 10px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; box-shadow: 0 2px 4px rgba(0,0,0,0.1); z-index: 2; }
+.card-body { padding: 1.25rem; display: flex; flex-direction: column; flex: 1; }
+.user-info { display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.5rem; }
+.card-body h4 { margin: 0 0 0.5rem 0; font-size: 1rem; font-weight: 700; color: var(--text-main); }
+.card-desc { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; margin: 0 0 1rem 0; display: -webkit-box; -webkit-line-clamp: 2; line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; text-overflow: ellipsis; }
+.card-footer { margin-top: auto; padding-top: 0.8rem; border-top: 1px solid #F1F5F9; display: flex; justify-content: space-between; align-items: center; }
+.tap-hint { font-size: 0.75rem; color: var(--primary); font-weight: 600; opacity: 0; transform: translateX(-5px); transition: all 0.3s ease; }
+.report-card:hover .tap-hint { opacity: 1; transform: translateX(0); }
+
+/* --- STATUS PILLS --- */
+.status-pill { padding: 4px 10px; border-radius: 6px; font-size: 0.7rem; font-weight: 800; text-transform: uppercase; display: inline-flex; align-items: center; }
+.status-pending { background-color: #ffedd5; color: #9a3412; border: 1px solid #fdba74; }
+.status-process { background-color: #EFF6FF; color: #1D4ED8; border: 1px solid #BFDBFE; }
+.status-done { background-color: #F0FDF4; color: #15803D; border: 1px solid #BBF7D0; }
+.status-rejected { background-color: #FEF2F2; color: #B91C1C; border: 1px solid #FECACA; }
+
+/* =========================================
+   MODAL DE CONFIRMACIÓN (Ventanita pequeña)
+   ========================================= */
+.confirm-overlay { position: fixed; inset: 0; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(4px); z-index: 2000; display: flex; justify-content: center; align-items: center; animation: fadeIn 0.2s ease-out; }
+.confirm-box { background: white; padding: 2rem; border-radius: 20px; width: 90%; max-width: 400px; text-align: center; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04); animation: scaleIn 0.2s cubic-bezier(0.16, 1, 0.3, 1); border: 1px solid #F1F5F9; }
+@keyframes scaleIn { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.confirm-icon { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem auto; font-size: 2rem; }
+.confirm-icon.info { background: #EFF6FF; color: #3B82F6; }
+.confirm-icon.success { background: #F0FDF4; color: #10B981; }
+.confirm-icon.danger { background: #FEF2F2; color: #EF4444; }
+.confirm-title { font-size: 1.25rem; font-weight: 800; color: var(--text-main); margin-bottom: 0.5rem; }
+.confirm-desc { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.5; }
+.confirm-actions { display: flex; gap: 1rem; justify-content: center; }
+.btn-confirm-cancel { background: white; border: 1px solid #E2E8F0; color: var(--text-main); padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; flex: 1; }
+.btn-confirm-cancel:hover { background: #F8FAFC; border-color: #CBD5E1; }
+.btn-confirm-accept { background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.2s; font-size: 0.9rem; flex: 1; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.btn-confirm-accept:hover { transform: translateY(-2px); box-shadow: 0 6px 10px rgba(0,0,0,0.15); }
+.btn-confirm-accept.danger { background: #EF4444; }
+.btn-confirm-accept.success { background: #10B981; }
+

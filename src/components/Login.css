@@ -1,0 +1,144 @@
+:root {
+  --accent: #2b79ff; 
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+}
+
+* { box-sizing: border-box; }
+
+html, body, #root { 
+  height: 100%; 
+  margin: 0; 
+  padding: 0; 
+}
+
+/* --- CAMBIO CRUCIAL 1: FONDO TRANSPARENTE --- */
+/* Antes tenías un color gris aquí que tapaba tu imagen. Al ponerlo transparent, se ve el fondo. */
+body {
+  background: transparent; 
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.login-page {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;     
+  align-items: center; 
+  justify-content: center; 
+  padding: 20px;
+  position: relative;
+  z-index: 10; 
+}
+
+/* --- TARJETA CRISTAL (Glassmorphism) --- */
+.card {
+  /* --- CAMBIO CRUCIAL 2: MÁS TRANSPARENCIA --- */
+  /* Blanco al 40% para que el mapa se note claramente detrás */
+  background: rgba(255, 255, 255, 0.40); 
+  
+  /* Difuminado para que las letras sean legibles */
+  backdrop-filter: blur(10px); 
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 24px;
+  padding: 48px;
+  width: 100%;
+  max-width: 440px; 
+  
+  /* Sombra suave pero definida */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+    
+  /* Borde semitransparente */
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  
+  animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Textos */
+.title {
+  font-size: 28px;
+  margin: 0 0 10px 0;
+  font-weight: 800;
+  text-align: center;
+  color: #0f172a;
+  letter-spacing: -0.5px;
+}
+
+.subtitle {
+  font-size: 15px;
+  color: #334155; /* Un poco más oscuro para que se lea bien sobre transparente */
+  margin: 0 0 32px 0;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Formulario */
+.form { display: flex; flex-direction: column; gap: 20px; }
+
+label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 8px;
+  display: block;
+}
+
+/* --- INPUTS CRISTAL --- */
+.input-wrap {
+  display: flex;
+  align-items: center;
+  /* Fondo blanco al 60% para que también sean medio transparentes */
+  background: rgba(255, 255, 255, 0.6); 
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  padding: 14px 16px;
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.input-wrap:focus-within {
+  background: rgba(255, 255, 255, 0.9); /* Casi blanco al escribir */
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(43, 121, 255, 0.15);
+}
+
+input[type="text"], input[type="password"] {
+  border: 0; 
+  outline: 0; 
+  background: transparent; 
+  font-size: 16px; 
+  width: 100%;
+  color: #0f172a;
+  font-weight: 600;
+}
+
+.password-wrap { position: relative; }
+.eye { margin-left: 10px; opacity: 0.6; cursor: pointer; font-size: 18px; }
+.eye:hover { opacity: 1; color: var(--accent); }
+
+/* Botón */
+.btn {
+  margin-top: 10px;
+  background: linear-gradient(135deg, #2b79ff 0%, #1a66ea 100%);
+  color: white;
+  border: 0;
+  padding: 16px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 10px 15px -3px rgba(43, 121, 255, 0.4); 
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 20px -3px rgba(43, 121, 255, 0.5);
+}

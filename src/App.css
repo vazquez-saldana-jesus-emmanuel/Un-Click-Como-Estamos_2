@@ -1,0 +1,81 @@
+/* 1. ESTO ES LO QUE QUITA LOS ESPACIOS BLANCOS DE LOS LADOS */
+#root {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* 2. ESTILOS POR DEFECTO DE LA APP (Los dejamos por si acaso) */
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 3. TU IMAGEN DE FONDO (Corregida, sin duplicados) */
+/* Nota: Si ya pusiste la etiqueta <img> en App.jsx, puedes borrar este bloque.
+   Si prefieres hacerlo por CSS, déjalo así: */
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  
+  /* Ruta de la imagen */
+  background-image: url('/bg-logo.png');
+  
+  /* CAMBIO 1: Bajarla al 80% verticalmente */
+  /* center = horizontal, 80% = vertical */
+  background-position: center 95%;
+  
+  background-repeat: no-repeat;
+  background-size: 500px; 
+  
+  z-index: 99999;
+  
+  /* CAMBIO 2: Opacidad "2" (0.2) */
+  opacity: 0.2; 
+  
+  pointer-events: none;
+}

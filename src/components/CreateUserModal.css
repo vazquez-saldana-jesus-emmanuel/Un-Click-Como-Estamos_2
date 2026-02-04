@@ -1,0 +1,376 @@
+/* =========================================
+   1. FONDO Y MODAL PRINCIPAL
+   ========================================= */
+
+/* Fondo oscuro con desenfoque (Glassmorphism) */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 23, 42, 0.6); /* Azul oscuro semitransparente */
+  backdrop-filter: blur(6px); /* Efecto borroso elegante */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Tarjeta del Modal */
+.create-modal-modern {
+  background-color: #ffffff;
+  width: 95%;
+  max-width: 700px;
+  border-radius: 20px;
+  box-shadow: 
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  max-height: 90vh; /* Para evitar que se salga en pantallas chicas */
+  overflow-y: auto; /* Scroll si es muy alto */
+  animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* =========================================
+   2. ENCABEZADO (HEADER)
+   ========================================= */
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #0f172a; /* Slate 900 */
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.modal-header p {
+  margin: 6px 0 0 0;
+  color: #64748b; /* Slate 500 */
+  font-size: 14px;
+}
+
+.btn-close {
+  background: #f1f5f9;
+  border: none;
+  cursor: pointer;
+  color: #64748b;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.btn-close:hover {
+  background-color: #e2e8f0;
+  color: #0f172a;
+  transform: rotate(90deg);
+}
+
+/* =========================================
+   3. FORMULARIO E INPUTS
+   ========================================= */
+.modern-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Wrapper del Input */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+/* Efecto Focus Bonito */
+.input-wrapper:focus-within {
+  border-color: #3b82f6; /* Azul primario */
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); /* Anillo suave */
+}
+
+.input-wrapper input {
+  width: 100%;
+  padding: 12px 16px;
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  color: #1e293b;
+  outline: none;
+  border-radius: 10px;
+}
+
+.input-wrapper input::placeholder {
+  color: #94a3b8;
+}
+
+/* Botón Ojo Password */
+.eye-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+.eye-btn:hover {
+  color: #3b82f6;
+  background-color: #f1f5f9;
+}
+
+/* =========================================
+   4. SELECTOR DE ROL (TARJETAS)
+   ========================================= */
+.role-selector {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.role-card {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+  background: #ffffff;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.role-card:hover {
+  border-color: #94a3b8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.role-card.selected {
+  border-color: #3b82f6;
+  background-color: #eff6ff; /* Azul muy clarito */
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Iconos de Rol */
+.role-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+  font-weight: bold;
+}
+
+.role-icon-box.blue {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+}
+
+.role-icon-box.cyan {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+}
+
+.role-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-info span {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.role-info small {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.check-icon {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  color: #3b82f6;
+  background: white;
+  border-radius: 50%;
+  padding: 2px;
+}
+
+/* =========================================
+   5. BOTONES DE ACCIÓN (FOOTER)
+   ========================================= */
+.modal-footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-cancel {
+  background: white;
+  border: 1px solid #e2e8f0;
+  padding: 12px 24px;
+  border-radius: 10px;
+  color: #475569;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+  background-color: #f8fafc;
+  color: #1e293b;
+  border-color: #cbd5e1;
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.4);
+}
+
+.btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -2px rgba(59, 130, 246, 0.5);
+}
+
+.btn-save:active {
+  transform: translateY(0);
+}
+
+/* =========================================
+   6. PANTALLA DE ÉXITO (Overlay Interno)
+   ========================================= */
+.success-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 20px; /* Coincide con el modal */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  animation: fadeInOverlay 0.3s ease-out forwards;
+}
+
+.success-icon-box {
+  width: 90px;
+  height: 90px;
+  background-color: #ecfdf5; /* Verde menta muy suave */
+  color: #10b981; /* Verde esmeralda */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  box-shadow: 
+    0 0 0 12px rgba(209, 250, 229, 0.6), /* Anillo 1 */
+    0 0 0 24px rgba(209, 250, 229, 0.3); /* Anillo 2 */
+  animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.success-overlay h3 {
+  font-size: 28px;
+  color: #0f172a;
+  margin: 0 0 8px 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.success-overlay p {
+  font-size: 16px;
+  color: #64748b;
+  margin: 0;
+  font-weight: 500;
+}
+
+/* CreateUserModal.css */
+
+/* ... (Todo lo anterior) ... */
+
+/* Estilo para el banner de error */
+.error-banner {
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  animation: shake 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Borde rojo en inputs con error */
+.input-wrapper.input-error {
+  border-color: #ef4444;
+  background-color: #fff5f5;
+}
