@@ -55,7 +55,7 @@ const Navbar = () => {
               alt="Logo" 
               className="app-logo" 
             />
-            <span className="app-title">ReportesApp</span>
+            <span className="app-title">En un Click Como Estamos</span>
           </div>
         </div>
 
