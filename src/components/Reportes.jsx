@@ -78,6 +78,7 @@ export default function Reportes() {
             descripcion: cleanText(item.details),
             colonia: item.address?.neighborhood || "Ubicación General",
             direccion: item.address?.formattedAddress || cleanText(item.locationReferences),
+            referencias: cleanText(item.locationReferences),
             lat: item.latitude,
             lng: item.longitude,
             estado: item.status, 

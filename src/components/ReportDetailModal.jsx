@@ -100,13 +100,12 @@ export default function ReportDetailModal({
               <div className="meta-item"><label>Folio</label><p>{reporte.folio}</p></div>
               <div className="meta-item"><label>Fecha</label><p>{reporte.fecha}</p></div>
               <div className="meta-item"><label>Usuario</label><p>{reporte.usuario}</p></div>
-              <div className="meta-item"><label>Zona</label><p>{reporte.colonia}</p></div>
-              {reporte.lat && reporte.lng && (
-                <div className="meta-item">
-                  <label>Ubicación GPS</label>
-                  <p>
+              <div className="meta-item">
+                <label>Zona</label>
+                <p>
+                  {reporte.lat && reporte.lng ? (
                     <a 
-                      href={`https://www.google.com/maps?q=${reporte.lat},${reporte.lng}`}
+                      href={`https://www.google.com/maps/place/${reporte.lat},${reporte.lng}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
@@ -117,11 +116,20 @@ export default function ReportDetailModal({
                         gap: '5px',
                         fontWeight: '500'
                       }}
+                      title="Ver ubicación en Google Maps"
                     >
-                      <MapPin size={16} />
-                      Ver en Google Maps
+                      <MapPin size={14} />
+                      {reporte.colonia}
                     </a>
-                  </p>
+                  ) : (
+                    reporte.colonia
+                  )}
+                </p>
+              </div>
+              {reporte.referencias && reporte.referencias !== "Sin detalles disponibles." && (
+                <div className="meta-item">
+                  <label>Referencias</label>
+                  <p>{reporte.referencias}</p>
                 </div>
               )}
             </div>
