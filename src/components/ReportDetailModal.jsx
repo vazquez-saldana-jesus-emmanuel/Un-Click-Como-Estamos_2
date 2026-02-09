@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { X, CheckCircle, Unlock, MessageSquare, Clock, Send, User } from "lucide-react";
+import { X, CheckCircle, Unlock, MessageSquare, Clock, Send, User, MapPin } from "lucide-react";
 import "./ReportDetailModal.css";
 
 export default function ReportDetailModal({ 
@@ -101,6 +101,29 @@ export default function ReportDetailModal({
               <div className="meta-item"><label>Fecha</label><p>{reporte.fecha}</p></div>
               <div className="meta-item"><label>Usuario</label><p>{reporte.usuario}</p></div>
               <div className="meta-item"><label>Zona</label><p>{reporte.colonia}</p></div>
+              {reporte.lat && reporte.lng && (
+                <div className="meta-item">
+                  <label>Ubicación GPS</label>
+                  <p>
+                    <a 
+                      href={`https://www.google.com/maps?q=${reporte.lat},${reporte.lng}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{
+                        color: '#3b82f6',
+                        textDecoration: 'none',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '5px',
+                        fontWeight: '500'
+                      }}
+                    >
+                      <MapPin size={16} />
+                      Ver en Google Maps
+                    </a>
+                  </p>
+                </div>
+              )}
             </div>
 
             <div className="tracking-header"><MessageSquare size={18} /><h3>Bitácora de Seguimiento</h3></div>
